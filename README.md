@@ -25,3 +25,5 @@ Validação dos campos
 Poderá ser utilizado Mysql ou MongooDB. (se optar por Mysql, faça migration ou um .sql com o script de criação das tabelas)
 
 
+Realizado em Mysql
+Tentei realizar tudo que estava ao meu alcanse, espero ter dado tudo certo!
