@@ -1,6 +1,7 @@
 # TeamSoft
 Proposta
-O seu desafio é criar as operações básicas de Cadastro, Leitura, Alteração e Remoção de Clientes com endereço, construir 2 entidades separadas, um cliente pode ter mais de um endereço, em uma API REST;
+O seu desafio é criar as operações básicas de Cadastro, Leitura, Alteração e Remoção de Clientes com endereço, construir 2 entidades separadas, 
+um cliente pode ter mais de um endereço, em uma API REST;
 
 Cliente
 CNPJ (Obrigatório)
