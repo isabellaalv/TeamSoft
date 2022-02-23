@@ -20,7 +20,7 @@ class ClientesService {
         const clienteExist = await this.clienteRepository.findOne({CNPJ: newCliente.CNPJ})
         
         if(clienteExist){
-            throw new Error("Error de usuario existente")
+            throw new Error("Erro de usuario existente")
         }
         
         newCliente = await this.clienteRepository.save(newCliente)
@@ -31,7 +31,7 @@ class ClientesService {
         let retorno = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${newEndereco.Numero},${newEndereco.Endereco},${newEndereco.Bairro},${newEndereco.Cidade},${newEndereco.Estado},${newEndereco.CEP}&key=${process.env.YOUR_API_KEY}`)
         
         if(retorno.data.status !== 'OK'){
-            throw new Error("Error na API Google");
+            throw new Error("Erro na API Google");
         } else {
             newEndereco.Latitude = retorno.data.results[0].geometry.location.lat
             newEndereco.Longitude = retorno.data.results[0].geometry.location.lng
@@ -43,7 +43,7 @@ class ClientesService {
     }
 
     async getAllClientes(){
-        return await this.clienteRepository.find({relations: ["enderecos"]});
+        return await this.clienteRepository.find({relations: ["endereco"]});
     }
 
 
@@ -53,7 +53,7 @@ class ClientesService {
 
     async putClienteByCNPJ(cliente: Cliente){
         const cnpj = cliente.CNPJ
-        await this.clienteRepository.createQueryBuilder().update(Cliente).set({...cliente}).where("cnpj = :cnpj",{cnpj})
+        await this.clienteRepository.createQueryBuilder().update(Cliente).set({...cliente}).where("CNPJ = :CNPJ",{cnpj})
         .execute()
     }
 }

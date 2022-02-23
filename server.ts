@@ -1,19 +1,33 @@
-import "reflect-metadata";
+// import "reflect-metadata";
+// import express from "express";
+// import "express-async-errors";
+
+// import "dotenv/config";
+
+// import "./database";
+// import "./shared/container";
+// import { routes } from "./routes";
 import express from "express";
-import "express-async-errors";
-
-import "dotenv/config";
-
-import "./database";
-import "./shared/container";
+import "./db/config";
+const server = express();
+import "reflect-metadata";
 import { routes } from "./routes";
+import dotenv from "dotenv";
 
+
+
+dotenv.config()
+
+//usar,liberar o req.body
+server.use(express.json())
 
 const app = express();
 
 app.use(express.json());
-app.use(routes);
 
-const { PORT } = process.env;
+//Rotas
+server.use(routes)
 
-app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+const {PORT} = process.env;
+
+server.listen(PORT, () => console.log(`Rodando na porta: ${PORT}`))

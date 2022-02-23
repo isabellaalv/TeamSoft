@@ -24,12 +24,12 @@ class EnderecoController {
             } else {
                 await enderecosService.create(endereco);
                 
-                response.json({ message: "Inserção Completa" })
+                response.json({ message: "Foi inserido com sucesso" })
             }
 
         } catch (error) {
             response.json({
-                "mensagem-de-error": "Inserção Incompleta",
+                "mensagem-de-error": "Não foi possível concluir",
                 "tipo-de-error": error.message
             })
         }
@@ -51,11 +51,11 @@ class EnderecoController {
             } else {
                 await enderecosService.delete(parseInt(id));
                 
-                response.json({ message: "Inserção Completa" })
+                response.json({ message: "Deletado com sucesso" })
             }
         } catch (error) {
            response.json({
-                "mensagem-de-error": "Delecão Incompleta",
+                "mensagem-de-error": "Não foi possível deletar",
                 "tipo-de-error": error.message
             }) 
         }
@@ -81,7 +81,7 @@ class EnderecoController {
             }
         } catch (error) {
             response.json({
-                "mensagem-de-error": "Alteração Incompleta",
+                "mensagem-de-error": "Não foi possível alterar",
                 "tipo-de-error": error.message
             }) 
         }

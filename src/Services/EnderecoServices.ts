@@ -28,7 +28,7 @@ class EnderecosService {
             let retorno = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${iterator.Numero},${iterator.Endereco},${iterator.Bairro},${iterator.Cidade},${iterator.Estado},${iterator.CEP}&key=${process.env.YOUR_API_KEY}`)
             
             if(retorno.data.status !== 'OK'){
-                throw new Error("Error na API Google");
+                throw new Error("Erro na API Google");
             } else {
                 iterator.Latitude = retorno.data.results[0].geometry.location.lat
                 iterator.Longitude = retorno.data.results[0].geometry.location.lng
@@ -39,7 +39,7 @@ class EnderecosService {
         if(cliente){
             await this.enderecoRepository.save(newEnderecos)
         } else {
-            throw new Error("Cliente N Existe");
+            throw new Error("Cliente não existe");
         }
     }
 
@@ -53,13 +53,13 @@ class EnderecosService {
         let retorno = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${endereco.Numero},${endereco.Endereco},${endereco.Bairro},${endereco.Cidade},${endereco.Estado},${endereco.CEP}&key=${process.env.YOUR_API_KEY}`)
 
         if(retorno.data.status !== 'OK'){
-            throw new Error("Error na API Google");
+            throw new Error("Erro na API Google");
         } else {
             endereco.Latitude = retorno.data.results[0].geometry.location.lat
             endereco.Longitude = retorno.data.results[0].geometry.location.lng
         }
 
-        await this.enderecoRepository.createQueryBuilder().update(Endereco).set({...endereco}).where("id = :id",{Id})
+        await this.enderecoRepository.createQueryBuilder().update(Endereco).set({...endereco}).where("ID = :ID",{Id})
         .execute()
     }
 

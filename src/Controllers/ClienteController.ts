@@ -39,7 +39,7 @@ class ClienteController {
             response.json(clientes)
         } catch (error) {
             response.json({
-                "mensagem-de-error": "Listagem Incompleta",
+                "mensagem-de-error": "Não foi possível completar a listagem",
                 "tipo-de-error": error.message
             })
         }
@@ -60,10 +60,10 @@ class ClienteController {
             } else {
                 await clientesService.deleteClienteByCNPJ(cnpj)
 
-                response.json({ message: "Deleção Completa" })
+                response.json({ message: "Deletado com sucesso" })
             }
         } catch (err) {
-            response.json({ message: "Deleção Incompleta" })
+            response.json({ message: "Não foi possível completar a deletaçaõ" })
         }
     }
 
@@ -86,7 +86,7 @@ class ClienteController {
             }
         } catch (error) {
             response.json({
-                "mensagem-de-error": "Atualização Incompleta",
+                "mensagem-de-error": "Não foi possível atualizar",
                 "tipo-de-error": error.message
             })
         }
