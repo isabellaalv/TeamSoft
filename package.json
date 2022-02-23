@@ -1,0 +1,32 @@
+{
+  "name": "teamsoft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isabellaalv/TeamSoft.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isabellaalv/TeamSoft/issues"
+  },
+  "homepage": "https://github.com/isabellaalv/TeamSoft#readme",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "joi": "^17.6.0",
+    "joi-translation-pt-br": "^0.0.6",
+    "mysql2": "^2.3.3",
+    "node-mysql": "^0.4.2",
+    "swagger-ui-express": "^4.3.0",
+    "typeorm": "^0.2.43",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.0"
+  }
+}
